@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements NumberItemAdapter
     }
 
     @Override
-    protected void onSaveInstanceStart(@NonNull Bundle state) {
+    protected void onSaveInstanceState(@NonNull Bundle state) {
         super.onSaveInstanceState(state);
         state.putBoolean(SAVED_STATE, isNumberActivity);
     }
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements NumberItemAdapter
 
     @Override
     public void onNumberClicked(NumberItem item) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, NumberListFragment.newInstance(item)).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, NumberListFragment.newInstance()).addToBackStack(null).commit();
         isNumberActivity = true;
     }
 }

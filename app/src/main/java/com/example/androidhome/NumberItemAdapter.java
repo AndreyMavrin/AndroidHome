@@ -29,7 +29,7 @@ public class NumberItemAdapter extends RecyclerView.Adapter<NumberItemAdapter.Nu
     }
 
     @Override
-    public void onBindViewHolder(final NumberViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NumberViewHolder holder, int position) {
         final NumberItem number = numbersList.get(position);
         holder.view.setText(String.valueOf(number.num));
         holder.view.setTextColor(number.color);
@@ -49,7 +49,7 @@ public class NumberItemAdapter extends RecyclerView.Adapter<NumberItemAdapter.Nu
     }
 
     class NumberViewHolder extends RecyclerView.ViewHolder {
-        public final TextView view;
+        final TextView view;
 
         NumberViewHolder(View itemView) {
             super(itemView);

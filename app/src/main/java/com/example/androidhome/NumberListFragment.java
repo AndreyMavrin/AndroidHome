@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumberListFragment extends Fragment {
+public class NumberListFragment extends Fragment implements View.OnClickListener {
     private NumberItemAdapter adapter;
     private List<NumberItem> numbers = new ArrayList<>();
     private static final String ELEMS_NUM_KEY = "ELEMS_NUM";
@@ -25,7 +25,7 @@ public class NumberListFragment extends Fragment {
         super();
     }
 
-    public static NumberListFragment newInstance(int columnCount) {
+    static NumberListFragment newInstance() {
         return new NumberListFragment();
     }
 
@@ -51,7 +51,7 @@ public class NumberListFragment extends Fragment {
         adapter = new NumberItemAdapter(numbers, listener);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), getResources().getInteger(R.integer.columns_num)));
-        view.findViewById(R.id.button).setOnClickListener();
+        view.findViewById(R.id.button).setOnClickListener(this);
         return view;
     }
 
@@ -65,6 +65,11 @@ public class NumberListFragment extends Fragment {
     public void onSaveInstanceState(@NonNull Bundle state) {
         state.putInt(ELEMS_NUM_KEY, numberSize);
         super.onSaveInstanceState(state);
+    }
+
+    @Override
+    public void onClick(View view) {
+        addItem();
     }
 
     private void addItem() {
