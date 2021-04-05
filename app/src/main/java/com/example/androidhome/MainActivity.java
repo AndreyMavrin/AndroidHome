@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements NumberItemAdapter
 
     @Override
     public void onNumberClicked(NumberItem item) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, NumberListFragment.newInstance()).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, NumberFragment.newInstance(item)).addToBackStack(null).commit();
         isNumberActivity = true;
     }
 }

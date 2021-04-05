@@ -19,7 +19,7 @@ public class NumberFragment extends Fragment {
         super();
     }
 
-    public static NumberFragment newInstance(NumberItem item) {
+    static NumberFragment newInstance(NumberItem item) {
         NumberFragment fragment = new NumberFragment();
         Bundle args = new Bundle();
         args.putInt(NUMBER, item.num);
